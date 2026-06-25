@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Kgotso, with everything I have 🌹</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#0A0404;
+  --bg2:#110606;
+  --card:#1A0808;
+  --card2:#210A0A;
+  --crimson:#8B1A1A;
+  --red:#C0392B;
+  --rose:#E8556A;
+  --rose-light:#F4899A;
+  --gold:#D4A017;
+  --gold-light:#F0C040;
+  --gold-pale:#FFF0B0;
+  --text:#F5E6E6;
+  --text-soft:#D4AAAA;
+  --text-muted:#9A6666;
+  --border:rgba(212,160,23,0.15);
+}
+
+html{height:100%}
+
+body{
+  background:var(--bg);
+  font-family:'DM Sans',sans-serif;
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  position:relative;
+}
+
+/* ── ember blobs ── */
+.blob{
+  position:fixed;border-radius:50%;
+  pointer-events:none;z-index:0;
+  filter:blur(90px);
+  animation:blobDrift 14s ease-in-out infinite alternate;
+}
+.blob1{width:500px;height:500px;background:rgba(139,26,26,0.22);top:-100px;left:-120px;animation-duration:16s}
+.blob2{width:380px;height:380px;background:rgba(192,57,43,0.12);bottom:-80px;right:-80px;animation-duration:12s;animation-delay:-6s}
+.blob3{width:300px;height:300px;background:rgba(212,160,23,0.08);top:35%;left:55%;animation-duration:18s;animation-delay:-4s}
+@keyframes blobDrift{
+  0%{transform:translate(0,0) scale(1)}
+  100%{transform:translate(25px,18px) scale(1.1)}
+}
+
+/* ── rings ── */
+.ring{
+  position:fixed;border-radius:50%;
+  pointer-events:none;z-index:0;
+  left:50%;top:50%;
+  animation:ringPulse 8s ease-in-out infinite;
+  transform:translate(-50%,-50%);
+}
+@keyframes ringPulse{
+  0%,100%{transform:translate(-50%,-50%) scale(1);opacity:1}
+  50%{transform:translate(-50%,-50%) scale(1.14);opacity:0.2}
+}
+
+/* ── canvases ── */
+#starCanvas{position:fixed;inset:0;pointer-events:none;z-index:0}
+#petalCanvas{position:fixed;inset:0;pointer-events:none;z-index:1}
+
+/* ── card ── */
+.card{
+  position:relative;z-index:2;
+  background:linear-gradient(160deg,#1A0808,#210A0A,#180606);
+  border-radius:32px;
+  border:1px solid rgba(212,160,23,0.18);
+  padding:52px 50px 46px;
+  max-width:560px;width:93vw;
+  text-align:center;
+  box-shadow:
+    0 0 0 1px rgba(139,26,26,0.3),
+    0 8px 80px rgba(5,1,1,0.85),
+    0 2px 16px rgba(139,26,26,0.25),
+    inset 0 1px 0 rgba(212,160,23,0.08);
+  animation:cardIn 1s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(40px) scale(0.94)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* ── intro ── */
+.intro-icon{
+  font-size:3rem;display:block;
+  margin-bottom:12px;
+  animation:iconFloat 3.5s ease-in-out infinite;
+  filter:drop-shadow(0 0 14px rgba(212,160,23,0.5));
+}
+@keyframes iconFloat{
+  0%,100%{transform:translateY(0) rotate(-5deg) scale(1)}
+  50%{transform:translateY(-8px) rotate(5deg) scale(1.06)}
+}
+
+.time-whisper{
+  font-size:0.72rem;letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);opacity:0.55;
+  margin-bottom:10px;
+}
+
+h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.7rem,4.5vw,2.2rem);
+  font-style:italic;font-weight:300;
+  color:var(--rose-light);
+  line-height:1.22;margin-bottom:6px;
+  text-shadow:0 0 40px rgba(232,85,106,0.25);
+}
+
+.tagline{
+  font-size:0.78rem;letter-spacing:0.13em;
+  text-transform:uppercase;
+  color:var(--text-muted);opacity:0.8;
+  margin-bottom:10px;
+}
+
+.divider{
+  display:flex;align-items:center;gap:12px;
+  margin:20px 0 28px;
+}
+.divider-line{
+  flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,160,23,0.25),transparent);
+}
+.divider-rose{font-size:0.9rem;opacity:0.7;
+  animation:roseGlow 2s ease-in-out infinite alternate;
+}
+@keyframes roseGlow{
+  from{filter:drop-shadow(0 0 3px rgba(212,160,23,0.3))}
+  to{filter:drop-shadow(0 0 10px rgba(212,160,23,0.7))}
+}
+
+/* ── question area ── */
+.q-wrap{
+  min-height:220px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:24px;
+  transition:opacity 0.28s,transform 0.28s;
+}
+.q-wrap.out{opacity:0;transform:translateY(-14px)}
+
+.q-label{
+  font-size:0.7rem;letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);font-weight:500;
+  text-shadow:0 0 10px rgba(212,160,23,0.4);
+}
+
+.q-text{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:300;
+  font-size:clamp(1.2rem,3.8vw,1.55rem);
+  color:var(--text);line-height:1.65;
+  max-width:400px;
+  text-shadow:0 1px 20px rgba(232,85,106,0.1);
+}
+
+.hint{
+  font-size:0.8rem;color:var(--gold-light);
+  opacity:0.8;font-style:italic;
+  min-height:20px;transition:opacity 0.3s;
+  text-shadow:0 0 8px rgba(212,160,23,0.3);
+}
+
+/* ── buttons ── */
+.btn-row{
+  display:flex;gap:14px;
+  justify-content:center;align-items:center;
+  position:relative;min-height:56px;width:100%;
+}
+
+.btn{
+  padding:14px 38px;
+  border-radius:50px;border:none;
+  font-family:'DM Sans',sans-serif;
+  font-size:0.97rem;font-weight:500;
+  cursor:pointer;outline:none;
+  transition:transform 0.18s,box-shadow 0.18s,opacity 0.2s;
+}
+
+.btn-yes{
+  background:linear-gradient(135deg,#8B1A1A,#C0392B);
+  color:var(--gold-pale);
+  box-shadow:0 4px 24px rgba(139,26,26,0.55),0 0 0 1px rgba(212,160,23,0.2);
+  text-shadow:0 1px 4px rgba(0,0,0,0.4);
+}
+.btn-yes:hover{
+  transform:scale(1.08);
+  box-shadow:0 6px 36px rgba(192,57,43,0.7),0 0 20px rgba(212,160,23,0.25);
+}
+.btn-yes:active{transform:scale(0.97)}
+
+.btn-no{
+  background:rgba(212,160,23,0.06);
+  color:var(--text-muted);
+  border:1px solid rgba(212,160,23,0.15);
+}
+.btn-no.runaway{
+  position:absolute;
+  transition:left 0.12s cubic-bezier(.22,1,.36,1),top 0.12s cubic-bezier(.22,1,.36,1);
+}
+.btn-no:hover{transform:scale(1.03);background:rgba(212,160,23,0.1)}
+
+/* ── progress ── */
+.progress-bar-wrap{
+  margin-top:32px;height:2px;
+  background:rgba(212,160,23,0.08);
+  border-radius:99px;overflow:hidden;
+}
+.progress-bar-fill{
+  height:100%;
+  background:linear-gradient(90deg,#8B1A1A,var(--gold));
+  border-radius:99px;
+  transition:width 0.6s cubic-bezier(.22,1,.36,1);
+  box-shadow:0 0 10px rgba(212,160,23,0.4);
+}
+.step-label{
+  font-size:0.7rem;color:var(--text-muted);
+  opacity:0.5;margin-top:10px;letter-spacing:0.09em;
+  transition:opacity 0.4s;
+}
+
+/* ── final screen ── */
+#finalScreen{display:none;flex-direction:column;align-items:center;gap:0}
+#finalScreen.show{display:flex;animation:cardIn 0.9s cubic-bezier(.22,1,.36,1) both}
+
+.final-icon{
+  font-size:3rem;margin-bottom:16px;
+  animation:heartBeat 1.4s ease-in-out infinite;
+  filter:drop-shadow(0 0 16px rgba(192,57,43,0.6));
+}
+@keyframes heartBeat{
+  0%,100%{transform:scale(1)}
+  15%{transform:scale(1.22)}
+  30%{transform:scale(1.05)}
+  45%{transform:scale(1.26)}
+  70%{transform:scale(1)}
+}
+
+.final-title{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:300;
+  font-size:clamp(1.4rem,3.8vw,1.9rem);
+  color:var(--rose-light);line-height:1.25;
+  text-shadow:0 0 30px rgba(232,85,106,0.3);
+  margin-bottom:24px;
+}
+
+.letter{
+  background:rgba(139,26,26,0.08);
+  border:1px solid rgba(212,160,23,0.12);
+  border-radius:16px;
+  padding:28px 26px;
+  text-align:left;
+  position:relative;
+  overflow:hidden;
+}
+.letter::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,160,23,0.3),transparent);
+}
+
+.letter-open{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(0.95rem,2.5vw,1.1rem);
+  font-style:italic;font-weight:400;
+  color:var(--gold-light);
+  margin-bottom:12px;
+  display:block;
+}
+
+.letter-body{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,2.6vw,1.13rem);
+  font-weight:300;
+  color:var(--text-soft);
+  line-height:2;
+  display:block;
+  margin-bottom:20px;
+}
+
+.letter-close{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:1.05rem;
+  color:var(--gold);
+  text-shadow:0 0 12px rgba(212,160,23,0.4);
+  display:block;
+  text-align:right;
+}
+
+.kisses{
+  font-size:1.8rem;margin-top:20px;
+  animation:kissFloat 2.5s ease-in-out infinite;
+  filter:drop-shadow(0 0 8px rgba(232,85,106,0.5));
+}
+@keyframes kissFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
+
+/* ── particles ── */
+.confetti-bit{
+  position:fixed;pointer-events:none;z-index:99;
+  width:7px;height:7px;border-radius:2px;
+  animation:confettiFall 2s ease-in forwards;
+}
+@keyframes confettiFall{
+  0%{opacity:1;transform:translateY(0) rotate(0deg)}
+  100%{opacity:0;transform:translateY(100vh) rotate(800deg)}
+}
+.sparkle-dot{
+  position:fixed;pointer-events:none;z-index:99;
+  border-radius:50%;
+  animation:sparklePop 0.9s ease-out forwards;
+}
+@keyframes sparklePop{
+  0%{opacity:1;transform:scale(0) translate(0,0)}
+  50%{opacity:1}
+  100%{opacity:0;transform:scale(1) translate(var(--dx),var(--dy))}
+}
+</style>
+</head>
+<body>
+
+<!-- atmosphere -->
+<canvas id="starCanvas"></canvas>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+<div class="ring" style="width:350px;height:350px;border:1px solid rgba(139,26,26,0.2)"></div>
+<div class="ring" style="width:580px;height:580px;border:1px solid rgba(212,160,23,0.08);animation-delay:-3s"></div>
+<div class="ring" style="width:820px;height:820px;border:1px solid rgba(139,26,26,0.06);animation-delay:-6s"></div>
+<canvas id="petalCanvas"></canvas>
+
+<div class="card">
+  <span class="intro-icon">🌹</span>
+  <p class="time-whisper">Written in the late hours, just for you</p>
+  <h1>I have something to ask you, babe</h1>
+  <p class="tagline">Your heart already knows every answer</p>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <span class="divider-rose">🌹</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- Questions -->
+  <div class="q-wrap" id="qWrap">
+    <p class="q-label" id="qLabel">Question 1 of 5</p>
+    <p class="q-text" id="qText"></p>
+    <p class="hint" id="hint"></p>
+    <div class="btn-row" id="btnRow">
+      <button class="btn btn-yes" id="yesBtn" onclick="handleYes()"></button>
+      <button class="btn btn-no" id="noBtn"></button>
+    </div>
+  </div>
+
+  <!-- Final -->
+  <div id="finalScreen">
+    <div class="final-icon">🌹</div>
+    <p class="final-title">I knew you'd say yes to all of them, babe.</p>
+
+    <div class="letter">
+      <span class="letter-open">My dearest Kgotso,</span>
+      <span class="letter-body">
+        It is late. Everyone else is asleep. But here I am, wide awake —
+        thinking about you. Not because I have to. Because I simply cannot help it.<br><br>
+
+        I miss you in a way that doesn't make sense for the hours between us.
+        I miss the sound of you. The warmth of you. The way you exist
+        and somehow make every room feel more alive just by being in it.<br><br>
+
+        I want you to know — not because today asked for it,
+        but because tonight reminded me — that you are one of the most
+        beautiful things that has ever happened to me.
+        Not just in how you look, babe, but in how you love.
+        In how you care. In how you show up, even on the days when showing up is hard.<br><br>
+
+        You deserve to be told that you are enough. More than enough.
+        That the way you laugh is one of my favourite sounds in the entire world.
+        That loving you has never once felt like a compromise —
+        it has only ever felt like the most natural thing I have ever done.<br><br>
+
+        So when you read this in the morning, with the sun just coming in —
+        know that someone stayed up thinking about you.
+        Know that you were loved completely, quietly, deeply —
+        even while you were sleeping.
+      </span>
+      <span class="letter-close">
+        With every piece of me,<br>
+        Yours — always 🌹
+      </span>
+    </div>
+
+    <div class="kisses">😘💋😘💋😘</div>
+  </div>
+
+  <!-- Progress -->
+  <div id="progressSection">
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+    </div>
+    <p class="step-label" id="stepLabel">Just getting started…</p>
+  </div>
+</div>
+
+<script>
+const questions = [
+  {
+    text:"Babe — does your heart still do something embarrassing every time I walk into the room?",
+    type:"runaway",
+    yesLabel:"Every single time 😍",
+    noLabel:"Maybe a little…",
+    hints:[
+      "That button is running away… just like your heart is racing right now 👀",
+      "Still sprinting… interesting 🤔",
+      "The universe literally will not let you click that, babe 🌌",
+      "It's impossible. We both know it. Just click Yes 😂🌹"
+    ]
+  },
+  {
+    text:"Would you choose me again, babe — if you had to start from the very beginning?",
+    type:"redirect",
+    yesLabel:"A thousand times, yes 🌹",
+    noLabel:"Hmm…",
+    redirectMsg:"Even 'No' couldn't help itself — it came right back to Yes 🥹"
+  },
+  {
+    text:"Am I your favourite person to be completely, embarrassingly yourself with?",
+    type:"runaway",
+    yesLabel:"Without a doubt 😂🌹",
+    noLabel:"Not really…",
+    hints:[
+      "Nope — that button was never made for you 🙈",
+      "Still running, babe. Still running 🏃",
+      "It doesn't exist in your world. You already know why 💀",
+      "Kgotso. Babe. Just click Yes. It's 3am and I love you 😭"
+    ]
+  },
+  {
+    text:"Do you believe that what we have is worth every late night, every distance, every hard day?",
+    type:"redirect",
+    yesLabel:"I really do 💛",
+    noLabel:"I'm not sure…",
+    redirectMsg:"'No' tried. But love always wins 💫"
+  },
+  {
+    text:"Babe — will you keep choosing me, even on the days when I am being an absolute lot?",
+    type:"static",
+    yesLabel:"Always. Without question 🥺",
+    noLabel:"...",
+    staticMsg:"That button simply does not work here. Some things are not up for debate 😇🌹"
+  }
+];
+
+let current=0, noMoves=0;
+const qLabel=document.getElementById('qLabel');
+const qText=document.getElementById('qText');
+const hint=document.getElementById('hint');
+const yesBtn=document.getElementById('yesBtn');
+const noBtn=document.getElementById('noBtn');
+const qWrap=document.getElementById('qWrap');
+const progFill=document.getElementById('progressFill');
+const stepLbl=document.getElementById('stepLabel');
+const finalScr=document.getElementById('finalScreen');
+
+function loadQuestion(idx){
+  const q=questions[idx];
+  qLabel.textContent=`Question ${idx+1} of ${questions.length}`;
+  qText.textContent=q.text;
+  hint.textContent='';
+  noMoves=0;
+  yesBtn.textContent=q.yesLabel;
+  noBtn.textContent=q.noLabel;
+  noBtn.className='btn btn-no';
+  noBtn.style.cssText='';
+  noBtn.onclick=()=>handleNo(q);
+  noBtn.onmouseover=null;
+  noBtn.ontouchstart=null;
+
+  if(q.type==='runaway'){
+    noBtn.className='btn btn-no runaway';
+    noBtn.style.position='absolute';
+    noBtn.style.left='58%';
+    noBtn.style.top='0px';
+    noBtn.onmouseover=()=>escapeNo(q);
+    noBtn.ontouchstart=(e)=>{e.preventDefault();escapeNo(q)};
+  }
+
+  progFill.style.width=(idx/questions.length*100)+'%';
+  const labels=[
+    'Just getting started, babe…',
+    'You\'re doing so well 🌹',
+    'Halfway there, my love…',
+    'Almost at the end…',
+    'Last one — this one matters most 🌹'
+  ];
+  stepLbl.textContent=labels[idx]||'';
+}
+
+function escapeNo(q){
+  noMoves++;
+  const row=document.getElementById('btnRow').getBoundingClientRect();
+  const nb=noBtn.getBoundingClientRect();
+  const pad=10, maxL=row.width-nb.width-pad;
+  let newL,newT;
+  do{newL=pad+Math.random()*(maxL-pad);newT=-24+Math.random()*50}
+  while(newL<195&&Math.abs(newT)<28);
+  noBtn.style.left=newL+'px';
+  noBtn.style.top=newT+'px';
+  const msgs=q.hints||[];
+  if(msgs[noMoves-1]) hint.textContent=msgs[noMoves-1];
+}
+
+function handleNo(q){
+  if(q.type==='redirect'){
+    noBtn.style.background='linear-gradient(135deg,#8B1A1A,#C0392B)';
+    noBtn.style.color='var(--gold-pale)';
+    noBtn.style.border='none';
+    noBtn.textContent='Yes 🌹';
+    noBtn.onclick=null;
+    hint.textContent=q.redirectMsg||'Secretly means yes 🥹';
+    spawnSparkles(noBtn);
+    setTimeout(()=>advance(),1100);
+  } else if(q.type==='static'){
+    hint.textContent=q.staticMsg||"That button doesn\'t work here 😇";
+    noBtn.style.opacity='0.25';
+    noBtn.style.transform='scale(0.88)';
+    setTimeout(()=>{noBtn.style.opacity='';noBtn.style.transform=''},500);
+  }
+}
+
+function handleYes(){
+  spawnConfetti();
+  spawnSparkles(yesBtn);
+  yesBtn.style.transform='scale(1.15)';
+  yesBtn.style.boxShadow='0 0 40px rgba(192,57,43,0.8),0 0 70px rgba(212,160,23,0.25)';
+  setTimeout(()=>{yesBtn.style.transform='';yesBtn.style.boxShadow='';advance()},700);
+}
+
+function advance(){
+  if(current<questions.length-1){
+    qWrap.classList.add('out');
+    setTimeout(()=>{
+      current++;
+      loadQuestion(current);
+      qWrap.classList.remove('out');
+      qWrap.style.opacity='0';
+      qWrap.style.transform='translateY(14px)';
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        qWrap.style.transition='opacity 0.38s,transform 0.38s';
+        qWrap.style.opacity='1';
+        qWrap.style.transform='translateY(0)';
+      }));
+    },300);
+  } else { showFinal(); }
+}
+
+function showFinal(){
+  qWrap.style.opacity='0';qWrap.style.transition='opacity 0.35s';
+  progFill.style.width='100%';stepLbl.style.opacity='0';
+  setTimeout(()=>{
+    qWrap.style.display='none';
+    finalScr.classList.add('show');
+    for(let i=0;i<12;i++) setTimeout(()=>spawnConfetti(),i*160);
+  },360);
+}
+
+/* ── confetti in reds and golds ── */
+function spawnConfetti(){
+  const cols=['#8B1A1A','#C0392B','#E8556A','#D4A017','#F0C040','#FFF0B0','#9B2335','#F4899A'];
+  for(let i=0;i<32;i++){
+    const el=document.createElement('div');
+    el.className='confetti-bit';
+    el.style.left=(10+Math.random()*80)+'vw';
+    el.style.top=(6+Math.random()*20)+'vh';
+    el.style.background=cols[Math.floor(Math.random()*cols.length)];
+    el.style.animationDelay=(Math.random()*0.55)+'s';
+    el.style.animationDuration=(1.5+Math.random()*1)+'s';
+    el.style.transform=`rotate(${Math.random()*360}deg)`;
+    if(Math.random()>0.5) el.style.borderRadius='50%';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),2800);
+  }
+}
+
+/* ── sparkle burst from button ── */
+function spawnSparkles(btn){
+  const rect=btn.getBoundingClientRect();
+  const cx=rect.left+rect.width/2, cy=rect.top+rect.height/2;
+  const cols=['#D4A017','#F0C040','#E8556A','#C0392B','#FFF0B0','#F4899A'];
+  for(let i=0;i<18;i++){
+    const el=document.createElement('div');
+    el.className='sparkle-dot';
+    const sz=2+Math.random()*6;
+    el.style.width=sz+'px';el.style.height=sz+'px';
+    el.style.left=cx+'px';el.style.top=cy+'px';
+    const angle=(i/18)*Math.PI*2;
+    const dist=50+Math.random()*70;
+    el.style.setProperty('--dx',Math.cos(angle)*dist+'px');
+    el.style.setProperty('--dy',Math.sin(angle)*dist+'px');
+    el.style.background=cols[Math.floor(Math.random()*cols.length)];
+    el.style.animationDelay=(Math.random()*0.15)+'s';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),1100);
+  }
+}
+
+/* ── star field ── */
+const sc=document.getElementById('starCanvas');
+const sctx=sc.getContext('2d');
+function resizeSC(){sc.width=window.innerWidth;sc.height=window.innerHeight}
+resizeSC();window.addEventListener('resize',resizeSC);
+
+const stars=[];
+for(let i=0;i<220;i++) stars.push({
+  x:Math.random()*window.innerWidth,
+  y:Math.random()*window.innerHeight,
+  r:0.3+Math.random()*1.3,
+  phase:Math.random()*Math.PI*2,
+  speed:0.003+Math.random()*0.012
+});
+
+/* ── falling petals / embers ── */
+const pc=document.getElementById('petalCanvas');
+const pctx=pc.getContext('2d');
+function resizePC(){pc.width=window.innerWidth;pc.height=window.innerHeight}
+resizePC();window.addEventListener('resize',resizePC);
+
+const petals=[];
+const pCols=[
+  [232,85,106],[192,57,43],[212,160,23],[240,192,64],[244,137,154],[139,26,26]
+];
+for(let i=0;i<26;i++) petals.push({
+  x:Math.random()*1400, y:-60-Math.random()*window.innerHeight,
+  vx:-0.3+Math.random()*0.6, vy:0.4+Math.random()*0.95,
+  rot:Math.random()*Math.PI*2, rs:(Math.random()-0.5)*0.022,
+  size:4+Math.random()*9,
+  op:0.14+Math.random()*0.28,
+  wobble:Math.random()*Math.PI*2, ws:0.009+Math.random()*0.016,
+  col:pCols[Math.floor(Math.random()*pCols.length)],
+  type:Math.random()>0.4?'petal':'heart'
+});
+
+function drawHeart(c,x,y,s,r,op,[cr,cg,cb]){
+  c.save();c.translate(x,y);c.rotate(r);c.globalAlpha=op;
+  c.beginPath();
+  c.moveTo(0,-s*0.5);
+  c.bezierCurveTo(s*0.5,-s*1.1,s*1.2,-s*0.1,0,s*0.7);
+  c.bezierCurveTo(-s*1.2,-s*0.1,-s*0.5,-s*1.1,0,-s*0.5);
+  c.fillStyle=`rgba(${cr},${cg},${cb},1)`;c.fill();c.restore();
+}
+
+function drawPetal(c,x,y,s,r,op,[cr,cg,cb]){
+  c.save();c.translate(x,y);c.rotate(r);c.globalAlpha=op;
+  c.beginPath();c.ellipse(0,0,s*0.38,s,0,0,Math.PI*2);
+  c.fillStyle=`rgba(${cr},${cg},${cb},1)`;c.fill();c.restore();
+}
+
+let lastT=0;
+function loop(ts){
+  const dt=Math.min((ts-lastT)/16,3);lastT=ts;
+  const now=ts*0.001;
+
+  /* stars */
+  sctx.clearRect(0,0,sc.width,sc.height);
+  for(const s of stars){
+    const a=0.15+0.6*Math.abs(Math.sin(s.phase+now*s.speed));
+    /* warm white / amber tinge for some stars */
+    const warm=Math.sin(s.phase)*0.5+0.5;
+    const r=Math.round(255), g=Math.round(220+warm*35), b=Math.round(180+warm*75);
+    sctx.beginPath();
+    sctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    sctx.fillStyle=`rgba(${r},${g},${b},${a})`;
+    sctx.fill();
+  }
+
+  /* petals */
+  pctx.clearRect(0,0,pc.width,pc.height);
+  for(const p of petals){
+    p.wobble+=p.ws*dt;p.y+=p.vy*dt;
+    p.x+=p.vx*dt+Math.sin(p.wobble)*0.45;
+    p.rot+=p.rs*dt;
+    if(p.y>pc.height+50){p.y=-55;p.x=Math.random()*pc.width}
+    if(p.type==='heart') drawHeart(pctx,p.x,p.y,p.size,p.rot,p.op,p.col);
+    else drawPetal(pctx,p.x,p.y,p.size,p.rot,p.op,p.col);
+  }
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+loadQuestion(0);
+</script>
+</body>
+</html>
